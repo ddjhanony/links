@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匿名大墩</title>
+
+    <link rel="icon" type="image/png" href="images/unnamed.jpg">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background: #F3F4F6;
+        }
+        .app {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 1.5cm 1.5rem 1.5rem 1.5rem;
+            background: none;
+            width: 100%;
+            box-sizing: border-box;
+            background: transparent;
+        }
+        .header {
+            background-color: #5B5B5B;
+            color: #FFFFFF;
+            padding: 1rem;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.3s;
+            box-sizing: border-box;
+            margin-bottom: 0.5rem;
+        }
+        .header:hover {
+            transform: scale(1.05);
+        }
+        .header h2 {
+            color: white;
+            margin: 0;
+            font-size: 1.2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .content {
+            width: 100%;
+            max-width: 28rem;
+            margin-top: 0rem;
+            background: none;
+        }
+        .welcome-text {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #1F2937;
+            animation: fadeInDown 1s ease forwards; 
+        }
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+        }
+        .welcome-text.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .button-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .button-wrapper:hover {
+            transform: translateY(-5px);
+        }
+        .button-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1rem;
+            opacity: 0.75;
+            filter: blur(1rem);
+            transition: opacity 1s;
+        }
+        .button-wrapper:hover::before {
+            opacity: 1;
+        }
+        .gradient-blue::before {
+            background: linear-gradient(to right, #9CA3AF, #4B5563);
+        }
+        .gradient-purple::before {
+            background: linear-gradient(to right, #D1D5DB, #6B7280);
+        }
+        .gradient-green::before {
+            background: linear-gradient(to right, #E5E7EB, #9CA3AF);
+        }
+        .button {
+            position: relative;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background-color: #4B5563;
+            color: #FFFFFF;
+            border-radius: 1rem;
+            border: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .button:hover {
+            background: #374151;
+        }
+        .button-text {
+            display: flex;
+            align-items: center;
+        }
+        .button-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+        .button:hover .button-icon {
+            transform: rotate(15deg);
+        }
+        .chevron {
+            width: 1.75rem;
+            height: 1.75rem;
+            transition: transform 0.3s ease;
+        }
+        .button:hover .chevron {
+            transform: translateX(5px);
+        }
+        .button::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, #9CA3AF, #374151);
+            border-radius: inherit;
+            z-index: -1;
+            filter: blur(8px);
+            opacity: 0.8;
+        }
+        .button:hover::after {
+            opacity: 0.2;
+        }
+        .gradient-blue .button::after {
+            background: linear-gradient(to right, #22d3ee, #0ea5e9);
+        }
+        .gradient-purple .button::after {
+            background: linear-gradient(to right, #c084fc, #e879f9);
+        }
+        .gradient-green .button::after {
+            background: linear-gradient(to right, #34d399, #10b981);
+        }
+        .button.active::before {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.75; }
+            50% { opacity: 1; }
+        }
+        .welcome-image {
+        display: block;       
+        margin: 1rem auto 2rem;  
+        max-width: 200px;      
+        height: auto;          
+        margin-top: 0.5rem; 
+        }
+        .footer {
+        text-align: center;
+        padding: 13px 0;
+        font-size: 14px;
+        color: #6b7280;           
+        background-color: #f9fafb; 
+        line-height: 1.6;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>
+          投稿又快爆了啊啊啊啊啊
+        </h2>
+    </div>
+    <div id="app" class="app">
+        <div class="content">
+
+ <a href="https://ddjh-anony.forteens.cc/admin/login" target="_blank">
+    <img src="images/logo.png" alt="Logo" class="welcome-image">
+</a>
+
+            <h1 id="welcomeText" class="welcome-text">歡迎使用匿名大墩</h1>
+            <div class="button-wrapper gradient-blue">
+                <button class="button" onclick="window.location.href='https://sites.google.com/view/ddjh-anony'">
+                    <span class="button-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        官網
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+            <div class="button-wrapper gradient-purple">
+                <button class="button" onclick="window.location.href='https://ddjh-anony.forteens.cc'">
+                    <span class="button-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        投稿連結
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+            <div class="button-wrapper gradient-green">
+                <button class="button" onclick="window.location.href='https://sites.google.com/view/ddjh-anony/%E5%8C%BF%E5%90%8D%E5%A4%A7%E5%A2%A9%E7%9B%B8%E9%97%9C%E8%A6%8F%E7%AF%84/%E5%B7%B2%E7%99%BC%E5%B8%83%E6%8A%95%E7%A8%BF%E5%88%AA%E9%99%A4%E8%A6%8F%E7%AF%84?authuser=0'">
+                    <span class="button-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <circle cx="12" cy="12" r="10"></circle>
+  <line x1="2" y1="12" x2="22" y2="12"></line>
+</svg>
+                        刪文申請表
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const welcomeText = document.getElementById('welcomeText');
+        window.onload = () => {
+            setTimeout(() => {
+                welcomeText.classList.add('show');
+            }, 1000);
+        };
+    </script>
+       <footer class="footer">
+           © 2025 匿名大墩 All Rights Reserved. <br>
+           Designed by 恩睿 (管理員 Rain)
+       </footer>
+</body>
+</html>
